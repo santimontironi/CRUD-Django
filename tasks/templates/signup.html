@@ -6,6 +6,10 @@
     <button>Register</button>
 </form>
 
-{{errorUser}}
+{% if errorUser %}
+    <p >{{ errorUser }}</p>
+{% endif %}
 
-{{errorPasswords}}
+{% if errorPasswords %}
+    <p>{{ errorPasswords }}</p>
+{% endif %}
