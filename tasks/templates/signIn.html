@@ -2,12 +2,12 @@
 
 {%block content%}
 
-    <h1>SignIn</h1>
+    <h1>Sign in</h1>
 
     <form method="post">
         {%csrf_token%}
         {{form.as_p}}
-        <button>Sign In</button>
+        <button class="btn btn-success">Sign In</button>
     </form>
     
     {%if error%}
