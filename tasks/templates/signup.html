@@ -1,15 +1,25 @@
-<h1>Signup</h1>
+{%extends 'base.html'%}
 
-<form method="POST">
-    {%csrf_token%}
-    {{form.as_p}}
-    <button>Register</button>
-</form>
+{%block content%}
 
-{% if errorUser %}
-    <p >{{ errorUser }}</p>
-{% endif %}
+    <h1>Signup</h1>
 
-{% if errorPasswords %}
-    <p>{{ errorPasswords }}</p>
-{% endif %}
+    <form method="POST">
+        {%csrf_token%}
+        {{form.as_p}}
+        <button>Register</button>
+    </form>
+
+    {% if errorUser %}
+        <p >{{ errorUser }}</p>
+    {% endif %}
+
+    {% if errorPasswords %}
+        <p>{{ errorPasswords }}</p>
+    {% endif %}
+
+
+{%endblock%}
+
+
+
