@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.contrib.auth import login
+from django.contrib.auth import login,logout
 from django.db import IntegrityError
 
 # Create your views here.
@@ -22,7 +22,7 @@ def signup(request):
                     password=request.POST["password1"],
                 )
                 user.save() #se guarda el usuario en la base de datos
-                login(request,user)
+                login(request,user) #se inicia sesion automaticamente al registrar al usuario
                 return redirect('tasks')
             except IntegrityError: #IntegrityError captura excepciones solamente de la base de datos
                 return render(
@@ -41,3 +41,8 @@ def signup(request):
 def tasks(request):
     if request.method == "GET":
         return render(request,'tasks.html')
+    
+
+def logOut(request):
+    logout(request)
+    return redirect('home')
