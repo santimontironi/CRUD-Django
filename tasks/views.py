@@ -44,7 +44,7 @@ def signIn(request):
             'form':AuthenticationForm
         })
     else:
-        user = authenticate(request,username=request.POST['username'],password=request.POST['password'])
+        user = authenticate(request,username=request.POST['username'],password=request.POST['password']) #authenticate() busca en la base de datos si hay un usuario con el username y password proporcionados.
         if user is None:
             return render(request,'signIn.html',{
                 'form':AuthenticationForm,
