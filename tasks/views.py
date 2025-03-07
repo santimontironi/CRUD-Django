@@ -58,6 +58,9 @@ def tasks(request):
     if request.method == "GET":
         return render(request,'tasks.html')
     
+def createTasks(request):
+    return render(request,'create_tasks.html')
+    
 
 def logOut(request):
     logout(request)
