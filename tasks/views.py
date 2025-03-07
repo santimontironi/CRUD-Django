@@ -3,7 +3,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login,logout, authenticate
 from django.db import IntegrityError
-
+from .models import Task
+from .forms import TaskForm
 # Create your views here.
 
 
@@ -56,11 +57,28 @@ def signIn(request):
 
 def tasks(request):
     if request.method == "GET":
-        return render(request,'tasks.html')
+        tasks = Task.objects.all()
+        return render(request,'tasks.html',{
+            'tasks':tasks
+        })
     
 def createTasks(request):
-    return render(request,'create_tasks.html')
-    
+    if request.method == "GET":
+        return render(request,'create_tasks.html',{
+            'form': TaskForm()
+        })
+    else:
+        try:
+            data = TaskForm(request.POST)
+            newTask = data.save(commit = False) #commit false es para no guardar los datos en la base de datos.
+            newTask.user = request.user #request.user es la cookie del usuario autenticado
+            newTask.save()
+            return redirect('tasks')
+        except ValueError:
+            return render(request,'create_tasks.html',{
+                'form': TaskForm(),
+                'error': 'Please send valid data'
+            })
 
 def logOut(request):
     logout(request)
