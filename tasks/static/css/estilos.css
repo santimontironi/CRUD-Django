@@ -1,0 +1,8 @@
+body{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    user-select: none;
+}
+
+.task{
+    box-shadow: 7px 8px 15px rgba(0, 0, 0, 0.7);
+}

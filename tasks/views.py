@@ -57,7 +57,7 @@ def signIn(request):
 
 def tasks(request):
     if request.method == "GET":
-        tasks = Task.objects.all()
+        tasks = Task.objects.filter(user=request.user,datecompleted__isnull = True)
         return render(request,'tasks.html',{
             'tasks':tasks
         })
