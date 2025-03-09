@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login,logout, authenticate
@@ -55,13 +55,7 @@ def signIn(request):
             login(request,user)
             return redirect('tasks')
 
-def tasks(request):
-    if request.method == "GET":
-        tasks = Task.objects.filter(user=request.user,datecompleted__isnull = True)
-        return render(request,'tasks.html',{
-            'tasks':tasks
-        })
-    
+
 def createTasks(request):
     if request.method == "GET":
         return render(request,'create_tasks.html',{
@@ -79,6 +73,20 @@ def createTasks(request):
                 'form': TaskForm(),
                 'error': 'Please send valid data'
             })
+
+def tasks(request):
+    if request.method == "GET":
+        tasks = Task.objects.filter(user=request.user,datecompleted__isnull = True)
+        return render(request,'tasks.html',{
+            'tasks':tasks
+        })
+    
+def taskDetail(request,task_id):
+    if request.method == "GET":
+        task = get_object_or_404(Task,id=task_id)
+        return render(request,'taskDetail.html',{
+            'task':task
+        })
 
 def logOut(request):
     logout(request)
