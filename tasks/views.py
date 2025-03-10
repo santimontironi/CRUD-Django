@@ -84,9 +84,17 @@ def tasks(request):
 def taskDetail(request,task_id):
     if request.method == "GET":
         task = get_object_or_404(Task,id=task_id)
+        form = TaskForm(instance=task)
         return render(request,'taskDetail.html',{
-            'task':task
+            'task':task,
+            'form':form
         })
+    else:
+        task = get_object_or_404(Task,id=task_id)
+        form = TaskForm(request.POST,instance=task)
+        form.save()
+        return redirect('tasks')
+        
 
 def logOut(request):
     logout(request)
