@@ -6,6 +6,7 @@ from django.db import IntegrityError
 from .models import Task
 from .forms import TaskForm
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -39,7 +40,7 @@ def signup(request):
                 {"form": UserCreationForm, "errorPasswords": "Passwords not match"},
             )
 
-
+@login_required
 def signIn(request):
     if request.method == "GET":
         return render(request,'signIn.html',{
@@ -56,7 +57,7 @@ def signIn(request):
             login(request,user)
             return redirect('tasks')
 
-
+@login_required
 def createTasks(request):
     if request.method == "GET":
         return render(request,'create_tasks.html',{
@@ -74,7 +75,8 @@ def createTasks(request):
                 'form': TaskForm(),
                 'error': 'Please send valid data'
             })
-
+            
+@login_required
 def tasks(request):
     if request.method == "GET":
         tasks = Task.objects.filter(user=request.user,datecompleted__isnull = True)
@@ -82,6 +84,7 @@ def tasks(request):
             'tasks':tasks
         })
     
+@login_required   
 def taskDetail(request,task_id):
     if request.method == "GET":
         task = get_object_or_404(Task,id=task_id)
@@ -104,6 +107,7 @@ def taskDetail(request,task_id):
                 'task':task
             })
             
+@login_required
 def taskCompleted(request,task_id):
     task = get_object_or_404(Task,id=task_id)
     if request.method == "POST":
@@ -111,12 +115,14 @@ def taskCompleted(request,task_id):
         task.save()
         return redirect('tasks')
     
+@login_required
 def taskEliminated(request,task_id):
     task = get_object_or_404(Task,id=task_id)
     if request.method == "POST":
         task.delete()
         return redirect('tasks')
-    
+
+@login_required    
 def tasksCompleted(request):
     if request.method == "GET":
         tasks = Task.objects.filter(user=request.user,datecompleted__isnull = False)
@@ -124,6 +130,7 @@ def tasksCompleted(request):
             'tasks':tasks
         })
 
+@login_required
 def logOut(request):
     logout(request)
     return redirect('home')
