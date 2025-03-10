@@ -10,14 +10,14 @@
 
     <h3>{{error}}</h3>
 
-    <form action="{% url 'taskCompleted' task.id %}" method="post">
+    <form action="{% url 'taskCompleted' task.id %}" method="post" onsubmit="return confirm('¿Estas seguro de marcar como completada esta tarea?')">
         {%csrf_token%}
         <button class="btn btn-success">
             Marcar como completada
         </button>
     </form>
 
-    <form action="{% url 'taskEliminated' task.id %}" method="post">
+    <form action="{% url 'taskEliminated' task.id %}" method="post" onsubmit="return confirm('¿Estas seguro de eliminar esta tarea?')">
         {%csrf_token%}
         <button class="btn btn-danger">
             Eliminar tarea
