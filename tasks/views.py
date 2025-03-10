@@ -116,6 +116,13 @@ def taskEliminated(request,task_id):
     if request.method == "POST":
         task.delete()
         return redirect('tasks')
+    
+def tasksCompleted(request):
+    if request.method == "GET":
+        tasks = Task.objects.filter(user=request.user,datecompleted__isnull = False)
+        return render(request,'tasksCompleted.html',{
+            'tasks':tasks
+        })
 
 def logOut(request):
     logout(request)
