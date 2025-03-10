@@ -24,13 +24,13 @@
               </li>
               {%if user.is_authenticated%}
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="/logout">Cerrar sesión</a>
-                </li>
-                <li class="nav-item">
                   <a class="nav-link text-light" href="/tasks">Tareas</a>
                 </li>
                 <li class="nav-item">
                   <a href="/createTasks" class="nav-link text-light">Crear tarea</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="/logout">Cerrar sesión</a>
                 </li>
                 {%else%}
                 <li class="nav-item">
