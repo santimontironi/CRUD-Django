@@ -40,7 +40,6 @@ def signup(request):
                 {"form": UserCreationForm, "errorPasswords": "Passwords not match"},
             )
 
-@login_required
 def signIn(request):
     if request.method == "GET":
         return render(request,'signIn.html',{
