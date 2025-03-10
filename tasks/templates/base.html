@@ -20,24 +20,24 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav gap-3 ms-auto">
               <li class="nav-item">
-                <a class="nav-link active text-light" aria-current="page" href="/">Home</a>
+                <a class="nav-link active text-light" aria-current="page" href="/">Inicio</a>
               </li>
               {%if user.is_authenticated%}
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="/logout">Log out</a>
+                    <a class="nav-link text-light" href="/logout">Cerrar sesión</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-light" href="/tasks">Tasks</a>
+                  <a class="nav-link text-light" href="/tasks">Tareas</a>
                 </li>
                 <li class="nav-item">
-                  <a href="/createTasks" class="nav-link text-light">Create task</a>
+                  <a href="/createTasks" class="nav-link text-light">Crear tarea</a>
                 </li>
                 {%else%}
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="/signIn">Sign In</a>
+                    <a class="nav-link text-light" href="/signIn">Iniciar sesión</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="/signup">Sign Up</a>
+                    <a class="nav-link text-light" href="/signup">Registrarse</a>
                 </li>
               {%endif%}
             </ul>
