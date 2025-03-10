@@ -84,16 +84,24 @@ def tasks(request):
 def taskDetail(request,task_id):
     if request.method == "GET":
         task = get_object_or_404(Task,id=task_id)
-        form = TaskForm(instance=task)
+        form = TaskForm(instance=task) #instance en GET muestra los datos precargados de la tarea
         return render(request,'taskDetail.html',{
             'task':task,
             'form':form
         })
     else:
-        task = get_object_or_404(Task,id=task_id)
-        form = TaskForm(request.POST,instance=task)
-        form.save()
-        return redirect('tasks')
+        try:
+            task = get_object_or_404(Task,id=task_id)
+            form = TaskForm(request.POST,instance=task) #instance en POST actualiza los datos de la tarea
+            form.save()
+            return redirect('tasks')
+        except ValueError:
+            error = "Hubo un error al actualizar la tarea."
+            return render(request,'taskDetail.html',{
+                'error':error,
+                'form':form,
+                'task':task
+            })
         
 
 def logOut(request):
