@@ -110,6 +110,12 @@ def taskCompleted(request,task_id):
         task.datecompleted = timezone.now()
         task.save()
         return redirect('tasks')
+    
+def taskEliminated(request,task_id):
+    task = get_object_or_404(Task,id=task_id)
+    if request.method == "POST":
+        task.delete()
+        return redirect('tasks')
 
 def logOut(request):
     logout(request)

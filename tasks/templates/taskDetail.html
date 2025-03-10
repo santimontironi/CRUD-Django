@@ -17,4 +17,11 @@
         </button>
     </form>
 
+    <form action="{% url 'taskEliminated' task.id %}" method="post">
+        {%csrf_token%}
+        <button class="btn btn-danger">
+            Eliminar tarea
+        </button>
+    </form>
+
 {%endblock%}
