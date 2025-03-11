@@ -27,9 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
-
 LOGIN_URL = '/signIn/' #es para indicarle a Django cual es la ruta para iniciar sesion en caso de ir a una ruta sin estar logueado previamente.
 
 # Application definition
