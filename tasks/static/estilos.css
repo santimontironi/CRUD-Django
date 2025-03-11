@@ -35,6 +35,15 @@ nav .nav-link:hover{
     width: 350px;
 }
 
+.tituloCrearTarea{
+    font-size: 50px;
+}
+
+.contendedorFormCreateTask{
+    width: 700px;
+    box-shadow: 5px 3px 10px rgba(0, 0, 0, 0.7);
+}
+
 @media (max-width:800px){
     .tituloBienvenida{
         font-size: 37px;
@@ -51,5 +60,8 @@ nav .nav-link:hover{
     }
     .formAutenticacion input{
         width: 300px;
+    }
+    .contendedorFormCreateTask{
+        width: 340px;
     }
 }

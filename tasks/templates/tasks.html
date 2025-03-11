@@ -25,6 +25,9 @@
                     </a>
                 </div>
             {%endfor%}
+            {%if noTasks %}
+                <p class="text-center m-auto d-flex justify-content-center align-content-center mt-5 w-50">{{noTasks}}</p>
+            {%endif%}
     </section>
 
 

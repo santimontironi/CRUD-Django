@@ -75,9 +75,14 @@ def createTasks(request):
 def tasks(request):
     if request.method == "GET":
         tasks = Task.objects.filter(user=request.user,datecompleted__isnull = True)
-        return render(request,'tasks.html',{
-            'tasks':tasks
-        })
+        if tasks:
+            return render(request,'tasks.html',{
+                'tasks':tasks
+            })
+        else:
+            return render(request,'tasks.html',{
+                'noTasks': 'No hay tareas pendientes.'
+            })
     
 @login_required   
 def taskDetail(request,task_id):

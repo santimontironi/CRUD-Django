@@ -2,14 +2,18 @@
 
 {%block content%}
 
-    <h1>Create task</h1>
+    <h1 class="tituloCrearTarea text-center mt-4 border-bottom border-3 border-primary w-75 m-auto">Crear tarea</h1>
 
-    {{error}}
-
-    <form method="post">
-        {%csrf_token%}
-        {{form.as_p}}
-        <input class="btn btn-success" type="submit" value="Add task">
-    </form>
+    <div class="contendedorFormCreateTask container card card-body mt-4">
+        <form method="post">
+            {%csrf_token%}
+            {{form.as_p}}
+            <input class="btn btn-success" type="submit" value="Agregar tarea">
+        </form>
+    </div>
+   
+    {%if error%}
+        <p class="mensajeError bg-danger text-center text-light w-75 m-auto mt-4 p-3 rounded-3">{{error}}</p> 
+    {%endif%}
 
 {%endblock%}
