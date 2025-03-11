@@ -42,4 +42,14 @@ nav .nav-link:hover{
     .contenedor-bienvenida{
         width: 350px;
     }
+    .tituloRegistro{
+        font-size: 35px;
+    }
+    .formRegistro{
+        height: auto;
+        width: 320px;
+    }
+    .formRegistro input{
+        width: 300px;
+    }
 }
