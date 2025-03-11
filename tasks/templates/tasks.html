@@ -6,13 +6,13 @@
 
     <section class="tasks container-fluid row w-100">
             {%for task in tasks%}
-                <div class="col-sm-12 col-xl-6 col-lg-4 col-md-4 d-flex justify-content-center align-items-center p-4">
+                <div class="col-sm-12 col-xl-4 col-lg-4 col-md-4 d-flex justify-content-center align-items-center p-4">
                     <a href="{%url 'taskDetail' task.id%}" style="text-decoration: none;">
-                        <div class="task p-4 h-100 w-75 bg-dark text-light rounded-2">
-                            <h1>
+                        <div class="tarea card card-body text-dark">
+                            <h1 class="card-title border-bottom border-3 border-primary">
                                 {{task.title}}
                             </h1>
-                            <p>
+                            <p class="card-text">
                                 {{task.description}}
                             </p>
                             <p>
@@ -20,7 +20,7 @@
                                     Tarea importante ⚠️
                                 {%endif%}
                             </p>
-                            <p>📅Tarea creada el: {{task.created|date:'D M Y:i'}}</p>
+                            <p>📅Tarea creada el día: {{task.created|date:'D M Y H:i A'}}</p>
                         </div>
                     </a>
                 </div>

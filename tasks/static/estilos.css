@@ -44,6 +44,14 @@ nav .nav-link:hover{
     box-shadow: 5px 3px 10px rgba(0, 0, 0, 0.7);
 }
 
+.tarea{
+    box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.tarea:hover{
+    background-color: #daeeaa;
+}
+
 @media (max-width:800px){
     .tituloBienvenida{
         font-size: 37px;
