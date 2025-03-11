@@ -26,6 +26,15 @@ nav .nav-link:hover{
     font-size: 20px;
 }
 
+.formRegistro{
+    width: 500px;
+    box-shadow: 5px 3px 15px rgba(0, 0, 0, 0.7);
+}
+
+.formRegistro input{
+    width: 350px;
+}
+
 @media (max-width:800px){
     .tituloBienvenida{
         font-size: 37px;

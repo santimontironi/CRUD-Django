@@ -2,12 +2,25 @@
 
 {%block content%}
 
-    <h1>Signup</h1>
+    <h1 class="text-center mt-4">Formulario de registro</h1>
 
-    <form method="POST">
+    <form class="formRegistro d-flex flex-column align-items-center justify-content-center m-auto border border-2 border-primary p-4 mt-4" method="POST">
         {%csrf_token%}
-        {{form.as_p}}
-        <button>Register</button>
+
+        <div class="mb-3">
+            <label for="username" class="form-label">Nombre de usuario:</label>
+            <input type="text" class="form-control" name="username" id="username" placeholder="Ingrese su nombre de usuario" required>
+        </div>
+        <div class="mb-3">
+            <label for="password1" class="form-label">Contraseña:</label>
+            <input type="password" class="form-control" id="password1" name="password1" placeholder="Ingrese su contraseña" required>
+        </div>
+        <div class="mb-3">
+            <label for="password2" class="form-label">Nuevamente su contraseña:</label>
+            <input type="password" class="form-control" id="password2" name="password2" placeholder="Ingrese su contraseña nuevamente" required>
+        </div>
+        
+        <button class="btn btn-success">Registrarse</button>
     </form>
 
     {% if errorUser %}
