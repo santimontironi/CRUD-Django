@@ -1,8 +1,17 @@
 {%extends 'base.html'%}
 
-{%block content%} 
+{%block content%}
 
-    <h1>Hello world</h1>
+    <div class="container card card-body contenedor-bienvenida mt-4 mb-5">
+        <h1 class="text-center fw-bold tituloBienvenida">tusTareasPlus</h1>
+        <p class="parrafo-bienvenida"> Hola, bienvenido a <span class="text-primary">tusTareasPlus</span>! La aplicación que te ayudará a organizar tus tareas diarias de manera fácil y eficiente. Podrás agregar, modificar y eliminar tareas cuando lo necesites, además de marcarlas como completadas.
+        Para mayor comodidad, también tendrás una sección de "Tareas Completadas", donde podrás revisar las tareas que ya realizaste. Gracias por elegirnos. ¡Mucho éxito con tus tareas! Esperamos que sean fáciles de completar. 😊 </p>
+        <div class="botones d-flex justify-content-center align-items-center gap-3">
+            <a class="btn btn-primary" href="/signIn">Registrarse</a>
+            o
+            <a class="btn btn-success" href="/signup">Iniciar sesión</a>
+        </div>
+    </div>
 
 {%endblock%}
 

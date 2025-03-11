@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 body{
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Raleway';
     user-select: none;
 }
 
@@ -7,6 +9,28 @@ body{
     box-shadow: 7px 8px 15px rgba(0, 0, 0, 0.7);
 }
 
-nav .navbar-nav .nav-item .nav-link{
-    background-color: red;
+nav .nav-link:hover{
+    text-decoration: underline;
+    transition: .8s;
+}
+
+.contenedor-bienvenida{
+    box-shadow: 5px 2px 15px rgba(0, 0, 0, 0.7);
+}
+
+.tituloBienvenida{
+    font-size: 60px;
+}
+
+.parrafo-bienvenida{
+    font-size: 20px;
+}
+
+@media (max-width:800px){
+    .tituloBienvenida{
+        font-size: 37px;
+    }
+    .contenedor-bienvenida{
+        width: 350px;
+    }
 }
