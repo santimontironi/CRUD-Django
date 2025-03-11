@@ -24,11 +24,11 @@
     </form>
 
     {% if errorUser %}
-        <p >{{ errorUser }}</p>
+        <p class="mensajeError bg-danger text-center text-light w-75 m-auto mt-4 p-3 rounded-3" >{{ errorUser }}</p>
     {% endif %}
 
     {% if errorPasswords %}
-        <p>{{ errorPasswords }}</p>
+        <p class="mensajeError bg-danger text-center text-light w-75 m-auto mt-4 p-3 rounded-3">{{ errorPasswords }}</p>
     {% endif %}
 
 
