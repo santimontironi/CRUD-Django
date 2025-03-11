@@ -2,26 +2,33 @@
 
 {%block content%}
 
-    <form method="post">
-        {%csrf_token%}
-        {{form}}
-        <input class="btn btn-primary" type="submit" value="Actualizar">
-    </form>
+    <h1 class="text-center border-3 border-bottom border-warning p-3 w-75 m-auto">Detalles de la tarea</h1>
 
-    <h3>{{error}}</h3>
+    <div class="container mt-3 border border-success border-1 p-3">
+        <form method="post">
+            {%csrf_token%}
+            {{form}}
+            <input class="btn btn-primary" type="submit" value="Actualizar">
+        </form>
+    
+        <div class="botonesTask d-flex gap-3 mt-3">
+            <form action="{% url 'taskCompleted' task.id %}" method="post" onsubmit="return confirm('¿Estas seguro de marcar como completada esta tarea?')">
+                {%csrf_token%}
+                <button class="btn btn-success">
+                    Marcar como completada
+                </button>
+            </form>
+        
+            <form action="{% url 'taskEliminated' task.id %}" method="post" onsubmit="return confirm('¿Estas seguro de eliminar esta tarea?')">
+                {%csrf_token%}
+                <button class="btn btn-danger">
+                    Eliminar tarea
+                </button>
+            </form>
+        </div>
+    </div>
 
-    <form action="{% url 'taskCompleted' task.id %}" method="post" onsubmit="return confirm('¿Estas seguro de marcar como completada esta tarea?')">
-        {%csrf_token%}
-        <button class="btn btn-success">
-            Marcar como completada
-        </button>
-    </form>
 
-    <form action="{% url 'taskEliminated' task.id %}" method="post" onsubmit="return confirm('¿Estas seguro de eliminar esta tarea?')">
-        {%csrf_token%}
-        <button class="btn btn-danger">
-            Eliminar tarea
-        </button>
-    </form>
+    
 
 {%endblock%}

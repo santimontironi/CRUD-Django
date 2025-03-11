@@ -94,18 +94,11 @@ def taskDetail(request,task_id):
             'form':form
         })
     else:
-        try:
-            task = get_object_or_404(Task,id=task_id)
-            form = TaskForm(request.POST,instance=task) #instance en POST actualiza los datos de la tarea
-            form.save()
-            return redirect('tasks')
-        except ValueError:
-            error = "Hubo un error al actualizar la tarea."
-            return render(request,'taskDetail.html',{
-                'error':error,
-                'form':form,
-                'task':task
-            })
+        task = get_object_or_404(Task,id=task_id)
+        form = TaskForm(request.POST,instance=task) #instance en POST actualiza los datos de la tarea
+        form.save()
+        return redirect('tasks')
+
             
 @login_required
 def taskCompleted(request,task_id):
