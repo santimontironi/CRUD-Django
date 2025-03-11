@@ -26,12 +26,12 @@ nav .nav-link:hover{
     font-size: 20px;
 }
 
-.formRegistro{
+.formAutenticacion{
     width: 500px;
     box-shadow: 5px 3px 15px rgba(0, 0, 0, 0.7);
 }
 
-.formRegistro input{
+.formAutenticacion input{
     width: 350px;
 }
 
@@ -45,11 +45,11 @@ nav .nav-link:hover{
     .tituloRegistro{
         font-size: 35px;
     }
-    .formRegistro{
+    .formAutenticacion{
         height: auto;
         width: 320px;
     }
-    .formRegistro input{
+    .formAutenticacion input{
         width: 300px;
     }
 }

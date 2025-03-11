@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login,logout, authenticate
 from django.db import IntegrityError
@@ -16,7 +15,7 @@ def home(request):
 
 def signup(request):
     if request.method == "GET":
-        return render(request, "signup.html", {"form": UserCreationForm})
+        return render(request, "signup.html")
     else:
         if request.POST["password1"] == request.POST["password2"]: #verificacion de si ambas claves son iguales
             try:
@@ -31,26 +30,23 @@ def signup(request):
                 return render(
                     request,
                     "signup.html",
-                    {"form": UserCreationForm, "errorUser": "User already exists"},
+                    {"errorUser": "Error. Un usuario ya existe con ese nombre."},
                 )
         else:
             return render(
                 request,
                 "signup.html",
-                {"form": UserCreationForm, "errorPasswords": "Passwords not match"},
+                {"errorPasswords": "Error. Las contraseñas no coinciden."},
             )
 
 def signIn(request):
     if request.method == "GET":
-        return render(request,'signIn.html',{
-            'form':AuthenticationForm
-        })
+        return render(request,'signIn.html')
     else:
         user = authenticate(request,username=request.POST['username'],password=request.POST['password']) #authenticate() busca en la base de datos si hay un usuario con el username y password proporcionados.
         if user is None:
             return render(request,'signIn.html',{
-                'form':AuthenticationForm,
-                'error': 'Username or password incorrect'
+                'error': 'Usuario o contraseñas incorrectos.'
             })
         else:
             login(request,user)

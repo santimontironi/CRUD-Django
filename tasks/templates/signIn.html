@@ -2,12 +2,21 @@
 
 {%block content%}
 
-    <h1>Sign in</h1>
+    <h1 class="text-center mt-4 tituloIngreso">Iniciar sesión</h1>
 
-    <form method="post">
+    <form class="formAutenticacion d-flex flex-column align-items-center justify-content-center m-auto border border-2 border-success p-4 mt-4" method="POST">
         {%csrf_token%}
-        {{form.as_p}}
-        <button class="btn btn-success">Sign In</button>
+
+        <div class="mb-3">
+            <label for="username" class="form-label">Nombre de usuario:</label>
+            <input type="text" class="form-control" name="username" id="username" placeholder="Ingrese su nombre de usuario" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Contraseña:</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese su contraseña" required>
+        </div>
+
+        <input class="btn btn-success" type="submit" value="Ingresar">
     </form>
     
     {%if error%}
