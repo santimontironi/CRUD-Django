@@ -80,8 +80,10 @@ def tasks(request):
                 'tasks':tasks
             })
         else:
+            imagenUrl = "https://img.icons8.com/?size=100&id=VPCEOPlFzQI2&format=png&color=000000"
             return render(request,'tasks.html',{
-                'noTasks': 'No hay tareas pendientes.'
+                'noTasks': 'No hay tareas pendientes.',
+                'imagenUrl': imagenUrl
             })
     
 @login_required   
@@ -125,8 +127,10 @@ def tasksCompleted(request):
                 'tasks':tasks
             })
         else:
+            imagenUrl = "https://img.icons8.com/?size=100&id=VPCEOPlFzQI2&format=png&color=000000"
             return render(request,'tasksCompleted.html',{
-                'noTasks': 'No haz completado ninguna tarea aún.'
+                'noTasks': 'No haz completado ninguna tarea aún.',
+                'imagenUrl': imagenUrl
             })
 
 @login_required
