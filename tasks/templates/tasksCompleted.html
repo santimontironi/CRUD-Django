@@ -26,12 +26,12 @@
             {%endfor%}
     </section>
 
-    {{%if noTasks%}}
-        <p class="mensajeError bg-danger text-center text-light w-75 m-auto mt-4 p-3 rounded-3">{{noTasks}}</p>
+    {%if noTasks%}
+        <p class="mensajeError bg-danger text-center text-light w-75 m-auto mt-4 p-3 rounded-3">{{ noTasks }}</p>
     {%endif%}
 
-    {%if imagenUrl %}
-        <img class="mt-3" src="{{imagenUrl}}" alt="notfound404" width="400">
+    {%if imagenUrl%}
+        <img class="mt-3" src="{{ imagenUrl }}" alt="notfound404" width="400">
     {%endif%}
 
 {%endblock%}
