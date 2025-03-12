@@ -8,7 +8,7 @@
             {%for task in tasks%}
                 <div class="col-sm-12 col-xl-6 col-lg-4 col-md-4 d-flex justify-content-center align-items-center p-4">
                     <div class="task p-4 h-100 w-75 bg-dark text-light rounded-2 card card-body">
-                        <h1 class="card-title">
+                        <h1 class="card-title border-bottom border-3 border-primary">
                             {{task.title}}
                         </h1>
                         <p class="card-text">
@@ -26,6 +26,8 @@
             {%endfor%}
     </section>
 
-    <p class="mensajeError bg-danger text-center text-light w-75 m-auto mt-4 p-3 rounded-3">{{noTasks}}</p>
+    {{%if noTasks%}}
+        <p class="mensajeError bg-danger text-center text-light w-75 m-auto mt-4 p-3 rounded-3">{{noTasks}}</p>
+    {%endif%}
 
 {%endblock%}
