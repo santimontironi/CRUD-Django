@@ -7,14 +7,14 @@
     <section class="tasks container-fluid row w-100">
             {%for task in tasks%}
                 <div class="col-sm-12 col-xl-6 col-lg-4 col-md-4 d-flex justify-content-center align-items-center p-4">
-                    <div class="task p-4 h-100 w-75 bg-dark text-light rounded-2">
-                        <h1>
+                    <div class="task p-4 h-100 w-75 bg-dark text-light rounded-2 card card-body">
+                        <h1 class="card-title">
                             {{task.title}}
                         </h1>
-                        <p>
+                        <p class="card-text">
                             {{task.description}}
                         </p>
-                        <p>
+                        <p class="card-text">
                             {%if task.important == True%}
                                 Tarea importante ⚠️
                             {%endif%}
@@ -25,5 +25,7 @@
                 </div>
             {%endfor%}
     </section>
+
+    <p class="mensajeError bg-danger text-center text-light w-75 m-auto mt-4 p-3 rounded-3">{{noTasks}}</p>
 
 {%endblock%}

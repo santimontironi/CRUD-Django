@@ -106,7 +106,8 @@ def taskCompleted(request,task_id):
     if request.method == "POST":
         task.datecompleted = timezone.now()
         task.save()
-        return redirect('tasks')
+        return redirect('tasksCompleted')
+
     
 @login_required
 def taskEliminated(request,task_id):
@@ -119,9 +120,14 @@ def taskEliminated(request,task_id):
 def tasksCompleted(request):
     if request.method == "GET":
         tasks = Task.objects.filter(user=request.user,datecompleted__isnull = False)
-        return render(request,'tasksCompleted.html',{
-            'tasks':tasks
-        })
+        if tasks:
+            return render(request,'tasksCompleted.html',{
+                'tasks':tasks
+            })
+        else:
+            return render(request,'tasksCompleted.html',{
+                'noTasks': 'No haz completado ninguna tarea aún.'
+            })
 
 @login_required
 def logOut(request):
